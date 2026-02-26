@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/test', function (Request $request) {
-    return Log::info('teste de log');
+    return Log::info('teste de logs');
 });
 Route::fallback(fn() => response(["message" => 'Página não encontrada'], 404));
 
