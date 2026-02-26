@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Adapters;
+namespace App\Services;
 
 use App\Interfaces\PdfExporterInterface;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
  * Adapter para a biblioteca DomPDF.
  * Implementa a interface PdfExporterInterface usando a facade do DomPDF.
  */
-class DomPdfAdapter implements PdfExporterInterface
+class DomPdfService implements PdfExporterInterface
 {
     /**
      * {@inheritdoc}

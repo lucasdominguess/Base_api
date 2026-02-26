@@ -4,11 +4,11 @@ namespace App\Providers;
 
 use App\Enums\Roles;
 
-use App\Adapters\LdapAdapter;
-use App\Adapters\DomPdfAdapter;
-use App\Adapters\XssCleanAdapter;
+use App\Services\LdapService;
+use App\Services\DomPdfService;
+use App\Services\XssCleanService;
 use App\Interfaces\LdapInterface;
-use App\Adapters\GoogleAuthAdapter;
+use App\Services\GoogleAuthService;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 use App\Interfaces\SanitizerInterface;
@@ -24,10 +24,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->bind(SanitizerInterface::class, XssCleanAdapter::class);
-        $this->app->bind(LdapInterface::class, LdapAdapter::class);
-        $this->app->bind(PdfExporterInterface::class, DomPdfAdapter::class);
-        $this->app->bind(SocialAuthInterface::class, GoogleAuthAdapter::class);
+        $this->app->bind(SanitizerInterface::class, XssCleanService::class);
+        $this->app->bind(LdapInterface::class, LdapService::class);
+        $this->app->bind(PdfExporterInterface::class, DomPdfService::class);
+        // $this->app->bind(SocialAuthInterface::class, GoogleAuthService::class);
         // $this->app->register(L5SwaggerServiceProvider::class);
     }
 
@@ -39,7 +39,7 @@ class AppServiceProvider extends ServiceProvider
         Route::pattern('id', '[0-9]+');
         // Gate para verificar se o usuário é um Administrador
         Gate::define('Gate-Admin', function ($user) {
-            return $user->hasRole(Roles::ADMIN->label());
+            // return $user->hasRole(Roles::ADMIN->label());
         });
     }
 }

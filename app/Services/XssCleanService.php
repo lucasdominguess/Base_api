@@ -1,12 +1,12 @@
 <?php
-namespace App\Adapters;
+namespace App\Services;
 
 
 
 use voku\helper\AntiXSS;
 use App\Interfaces\SanitizerInterface;
 
-class XssCleanAdapter implements SanitizerInterface
+class XssCleanService implements SanitizerInterface
 {
     protected AntiXSS $antiXSS;
     public function __construct()

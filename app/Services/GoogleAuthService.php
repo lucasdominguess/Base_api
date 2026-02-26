@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Adapters;
+namespace App\Services;
 
 use App\Enums\Roles;
 use App\Enums\Status;
@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Log;
 use App\Interfaces\SocialAuthInterface;
 use Laravel\Socialite\Facades\Socialite;
 
-class GoogleAuthAdapter implements SocialAuthInterface
+class GoogleAuthService implements SocialAuthInterface
 {
     public function authenticate(string $token): User
     {

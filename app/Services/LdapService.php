@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Adapters;
+namespace App\Services;
 
 use App\Interfaces\LdapInterface;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Config;
 use RuntimeException;
 
-class LdapAdapter implements LdapInterface
+class LdapService implements LdapInterface
 {
     public function loginLdap(string $username, string $password): array
     {

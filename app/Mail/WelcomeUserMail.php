@@ -10,9 +10,12 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class WelcomeUserMail extends Mailable
+class WelcomeUserMail extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
+
+        public $tries = 3;
+    public $backoff = 10;
 
     /**
      * Create a new message instance.
